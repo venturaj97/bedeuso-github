@@ -1,7 +1,7 @@
 #include <windows.h>
 #include <string>
 
-// Fun��o de callback da janela
+// Funcao de callback da janela
 LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
     static HWND hwndUsername, hwndPassword, hwndLoginButton;
 
@@ -22,16 +22,16 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) 
                 // Obter o identificador do controle que disparou o evento
                 int controlId = LOWORD(wParam);
 
-                // Verificar se o bot�o de login foi clicado
+                // Verificar se o botao de login foi clicado
                 if (controlId == 1) {
-                    // Obter os valores do usu�rio e senha
+                    // Obter os valores do usuario e senha
                     const int BUFFER_SIZE = 256;
                     wchar_t username[BUFFER_SIZE];
                     wchar_t password[BUFFER_SIZE];
                     GetWindowTextW(hwndUsername, username, BUFFER_SIZE);
                     GetWindowTextW(hwndPassword, password, BUFFER_SIZE);
 
-                    // Comparar com as credenciais v�lidas
+                    // Comparar com as credenciais validas
                     std::wstring usernameStr(username);
                     std::wstring passwordStr(password);
                     if (usernameStr == L"Raphael" && passwordStr == L"123456" || usernameStr == L"Joao" && passwordStr == L"111111" || usernameStr == L"Victor" && passwordStr == L"222222" || usernameStr == L"joaovictor" && passwordStr == L"333333" || usernameStr == L"teste" && passwordStr == L"987654" ){
